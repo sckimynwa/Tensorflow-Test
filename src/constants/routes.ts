@@ -1,5 +1,6 @@
 import { ComponentType } from "react";
 
+import DrawSketch from "@/components/DrawSketch";
 import MobileNet from "@/components/MobileNet";
 import ObjectDetector from "@/components/ObjectDetector";
 import PoseDetector from "@/components/PoseDetector";
@@ -29,5 +30,10 @@ export const Routes: RouteModel[] = [
     name: "pose-detector",
     path: "/pose-detector",
     component: PoseDetector,
+  },
+  {
+    name: "draw-sketch",
+    path: "/draw-sketch",
+    component: DrawSketch,
   },
 ];

@@ -20,8 +20,8 @@ function App() {
               component={route.component}
             />
           ))}
+          <Redirect to={Routes[0].path} />
         </Switch>
-        <Redirect to={Routes[0].path} />
       </BrowserRouter>
     </Fence>
   );

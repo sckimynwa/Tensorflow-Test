@@ -1,6 +1,13 @@
 import * as tf from "@tensorflow/tfjs";
 import * as mobilenet from "@tensorflow-models/mobilenet";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const Wrapper = styled.div``;
+
+const TargetImage = styled.img`
+  max-width: 300px;
+`;
 
 const MobileNet = () => {
   const [predictions, setPredictions] = useState([]);
@@ -10,6 +17,7 @@ const MobileNet = () => {
     const model = await mobilenet.load();
     const predictions = await model.classify(img as HTMLImageElement);
     setPredictions(predictions as any);
+    console.log(predictions);
   };
 
   useEffect(() => {
@@ -17,8 +25,8 @@ const MobileNet = () => {
   }, []);
 
   return (
-    <div>
-      <img id="test" src="/dog.jpeg" />
+    <Wrapper>
+      <TargetImage id="test" src="/static/images/donut.png" />
       <div>
         {predictions.map((temp: any) => (
           <div>
@@ -26,7 +34,7 @@ const MobileNet = () => {
           </div>
         ))}
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
